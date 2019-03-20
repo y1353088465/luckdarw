@@ -5,7 +5,6 @@
 </template>
 
 <script>
-  import vConsole from 'vconsole';
   import api from "./api/api.js"
   import wx from "weixin-js-sdk"
   import $ from "jquery"

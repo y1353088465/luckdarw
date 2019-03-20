@@ -24,6 +24,7 @@
             money_code:"",
             isEnd:false,
             active_status:false,
+            jquery_status:false,
           }
       },
       mounted(){
@@ -54,7 +55,11 @@
             }, false);
         }
         $(".go_buy").click(function(){
-          location.href = `https://mobile.sxwinstar.net/ccb/thursday/#/seckill/activity?activityId=204&itemId=${that.money_code}`;
+          if(that.jquery_status){
+            location.href = `https://mobile.sxwinstar.net/ccb/thursday/#/seckill/activity?activityId=204&itemId=${that.money_code}`;
+          }else{
+            alert("当前访问人数过多，请稍后再试")
+          }
         })
 
       },
@@ -74,6 +79,7 @@
               if(res.errorCode === "activity_end"){
                 this.active_status = true;
               }else{
+                this.jquery_status = true;
                 location.href = `https://mobile.sxwinstar.net/ccb/thursday/#/seckill/activity?activityId=204&itemId=${this.money_code}`;
               }
             }
