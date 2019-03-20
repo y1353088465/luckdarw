@@ -57,8 +57,6 @@
         $(".go_buy").click(function(){
           if(that.jquery_status){
             location.href = `https://mobile.sxwinstar.net/ccb/thursday/#/seckill/activity?activityId=204&itemId=${that.money_code}`;
-          }else{
-            alert("当前访问人数过多，请稍后再试")
           }
         })
 
