@@ -3,7 +3,7 @@
       <div class="section">
 
         <img class="banner_img" src="../../static/img/index_banner.png" alt="">
-        <h3 class="question_title">{{question.title}}</h3>
+        <h3 class="question_title" v-html="question.title"></h3>
         <ul>
           <li @click="checked_ele(j)" v-for="(i,j) in question.answer">
             <img class="solid_circular" v-if="i.check_status === true" src="../../static/img/ckecked.png" alt="">
@@ -33,7 +33,7 @@ export default {
       return{
         fail_status:false,
         question:{
-              title:"由陕西省公安厅交警总队、陕西省交通运输厅、建行陕西省分行共同研发的交通安全信息卡满5周岁啦，请问交安卡的作用和权益有哪些？（多选）：",
+              title:"由陕西省公安厅交警总队、陕西省交通运输厅、建行陕西省分行共同研发的交通安全信息卡满5周岁啦，现在答题立即赢大奖。<p class='for_blod'>请问交安卡的作用和权益有哪些？（多选）：</p>",
               answer:[
                   {
                       check_status:false,
@@ -163,6 +163,10 @@ export default {
         font-size: 14px;
         font-weight: 400;
         color:#492900;
+        .for_blod{
+          text-align: center;
+          font-weight: 600;
+        }
       }
       ul{
         padding:0 50px;
