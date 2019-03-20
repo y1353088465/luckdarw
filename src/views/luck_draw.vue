@@ -191,7 +191,8 @@
       width:100%;
       p{
         flex:1;
-        height:90%;
+        height:83px;
+        max-height:90%;
         background: #ffcdba;
         background-position: center;
         background-size: 80px;
