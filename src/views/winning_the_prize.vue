@@ -16,6 +16,7 @@
 
 <script>
   import $ from "jquery"
+  import api from "../api/api.js"
     export default {
         name: "winning_the_prize",
       data(){
