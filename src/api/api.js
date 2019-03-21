@@ -1,25 +1,23 @@
-import message from "./common.js";
-
-//token-------------------------------------
 
 //post function-----------------------------
-function _post(url, data ,method) {
+function _post(url, data ,method , token = true) {
+  console.log(token,method)
   return fetch(url, {
     method: method,
     type: 'json',
     body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json',
-      "token_id":localStorage.getItem("tokenId")
+      "token_id":token?localStorage.getItem("tokenId"):undefined
     },
   })
 }
 
 export default {
 //do_post-----------------------------------
-  do_post(url,data,method = "POST"){
+  do_post(url,data,token){
     return Promise.race([
-      _post(url,data,method),
+      _post(url,data,"POST",token),
       new Promise(function(resolve,reject){
         setTimeout(()=> reject(new Error('request timeout')),10000)
       })])
@@ -39,9 +37,9 @@ export default {
     })
   },
 
-  do_get(url,data,method = "GET"){
+  do_get( url,token){
     return Promise.race([
-      _post(url,data,method),
+      _post(url, undefined ,"GET", token),
       new Promise(function(resolve,reject){
         setTimeout(()=> reject(new Error('request timeout')),10000)
       })])
