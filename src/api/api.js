@@ -1,7 +1,6 @@
 
 //post function-----------------------------
 function _post(url, data ,method , token = true) {
-  console.log(token,method)
   return fetch(url, {
     method: method,
     type: 'json',
